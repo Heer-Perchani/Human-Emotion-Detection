@@ -22,6 +22,7 @@ Built using **PyTorch**, **Flask**, **HTML/CSS/JavaScript**, and the **Human Fac
 
 ## 📂 Project Structure
 
+```plaintext
 HUMAN-EMOTION-DETECTION/
 
 ├── app.py # Flask server 
@@ -34,7 +35,7 @@ HUMAN-EMOTION-DETECTION/
 │
 └── templates/
 └── index.html # Front-end UI
-
+```
 ---
 
 ## 🧠 Model
