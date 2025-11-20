@@ -22,18 +22,18 @@ Built using **PyTorch**, **Flask**, **HTML/CSS/JavaScript**, and the **Human Fac
 
 ## 📂 Project Structure
 
-HUMAN-EMOTION-DETECTION/
+HUMAN-EMOTION-DETECTION/\
 
-├── app.py # Flask server
-├── model.py # Model architecture + load function
-├── emotion_cnn.pt # Saved PyTorch model weights
-│
-├── static/
-│ ├── style.css # Optional front-end styling
-│ └── script.js # Handles sending the image to backend
-│
-└── templates/
-└── index.html # Front-end UI
+├── app.py # Flask server \
+├── model.py # Model architecture + load function \
+├── emotion_cnn.pt # Saved PyTorch model weights \
+│\
+├── static/\
+│ ├── style.css # Optional front-end styling\
+│ └── script.js # Handles sending the image to backend\
+│\
+└── templates/\
+└── index.html # Front-end UI\
 
 ---
 
