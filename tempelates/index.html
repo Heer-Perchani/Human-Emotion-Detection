@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Human Emotion Classifier</title>
+  <link rel="stylesheet" href="static/style.css">
+  
+</head>
+<body>
+    <h1>Upload an Image to Detect Emotion</h1>
+  
+    <div class="upload-box" onclick="document.getElementById('imageInput').click()">
+      <img id="uploadIcon" src="upload-icon.png" alt="Upload Icon">
+      <img id="previewImage">
+  </div>
+  
+  <input id="imageInput" type="file">
+  
+  <button id="predictBtn">Detect Emotion</button>
+  
+  <div id="result">Emotion detected: 😊</div>
+  </body>
+<script src="static/script.js"></script>
+</html>
