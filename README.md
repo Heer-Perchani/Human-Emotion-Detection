@@ -23,7 +23,7 @@ Built using **PyTorch**, **Flask**, **HTML/CSS/JavaScript**, and the **Human Fac
 ## 📂 Project Structure
 
 HUMAN-EMOTION-DETECTION/
-│
+
 ├── app.py # Flask server
 ├── model.py # Model architecture + load function
 ├── emotion_cnn.pt # Saved PyTorch model weights
@@ -35,8 +35,6 @@ HUMAN-EMOTION-DETECTION/
 └── templates/
 └── index.html # Front-end UI
 
-
-
 ---
 
 ## 🧠 Model
@@ -45,7 +43,7 @@ The CNN was trained in Google Colab using PyTorch on the
 **samithsachidanandan/human-face-emotions** dataset from Kaggle.
 
 ### **Input**
-- Images resized to **128 × 128**
+- Images resized to **224 × 224**
 - Normalized to mean=`0.5`, std=`0.5`
 
 ### **Architecture (Simplified)**
@@ -59,9 +57,7 @@ Model weights were saved using:
 
 ```python
 torch.save(model.state_dict(), "emotion_cnn.pt")
-
-
-
+```
 ## 💻 Running the Project Locally
 
 ### **Install requirements**
