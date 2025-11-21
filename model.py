@@ -43,12 +43,20 @@ class MyCNNModule(nn.Module):
   
       )
 
+      self.conv_block4 = nn.Sequential(
+          nn.Conv2d(64,128, kernel_size=3,padding=1),
+          nn.BatchNorm2d(128),
+          nn.ReLU(),
+          nn.MaxPool2d(2)
+
+      )
+
       self.fc = nn.Sequential( #final block or the classification head 
           nn.Flatten(),
-          nn.Linear(64, 128), #256 is the features ffrom last layer and then 14 by 14 is the number of features iin the end after all the max poling. so the linear basically makes it all into 1d
+          nn.Linear(128, 256), #256 is the features ffrom last layer and then 14 by 14 is the number of features iin the end after all the max poling. so the linear basically makes it all into 1d
           nn.ReLU(),
           nn.Dropout(0.5),
-          nn.Linear(128,5)
+          nn.Linear(256,5)
                                     
       )
 
@@ -64,6 +72,7 @@ class MyCNNModule(nn.Module):
       x = self.conv_block1(x)
       x = self.conv_block2(x)
       x = self.conv_block3(x)
+      x = self.conv_block4(x)
       x = self.global_pool(x)
       x = self.fc(x)
       return x
