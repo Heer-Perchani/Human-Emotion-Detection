@@ -7,17 +7,18 @@
 </head>
 <body>
     <h1>Upload an Image to Detect Emotion</h1>
-  
-    <div class="upload-box" onclick="document.getElementById('imageInput').click()">
+  <!-- this is basically just like if that uplaod box is clicked then perform the click action on that -->
+    <div class="upload-box" onclick="document.getElementById('imageInput').click()"> 
       <img id="uploadIcon" src="upload-icon.png" alt="Upload Icon">
-      <img id="previewImage">
-  </div>
+      <img id="previewImage"> 
+    </div>
   
   <input id="imageInput" type="file">
   
   <button id="predictBtn">Detect Emotion</button>
   
   <div id="result">Emotion detected: 😊</div>
-  </body>
+  
+</body>
 <script src="static/script.js"></script>
 </html>

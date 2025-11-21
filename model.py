@@ -4,7 +4,7 @@ from torch import nn, optim
 num_of_classes = 5
 
 class MyCNNModule(nn.Module):
-    def __init__(self, num_classes):
+    def __init__(self, num_classes=5):
       super(MyCNNModule, self).__init__()
 
       self.conv_block1 = nn.Sequential(
