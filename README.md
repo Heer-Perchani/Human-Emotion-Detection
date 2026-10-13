@@ -1,66 +1,45 @@
 # Emotion Recognition Web App
 
-A simple web application that uses a Convolutional Neural Network (CNN) to classify human facial emotions from an uploaded image.  
-Built using **PyTorch**, **Flask**, **HTML/CSS/JavaScript**, and the **Human Face Emotions Kaggle Dataset**.
+A web app that classifies the emotion in a face photo using a convolutional neural network (CNN) I trained from scratch in PyTorch. Upload an image in the browser, and a Flask backend runs the model and returns the predicted emotion.
 
----
+**Result:** 71% accuracy across 5 emotion classes.
 
-## 🚀 Features
+<!-- Add a screenshot of the app here, e.g. ![App screenshot](screenshot.png) -->
 
-- Upload an image from your device  
-- Backend automatically preprocesses the image  
-- Model predicts one of the 5 emotions:
-  - Angry  
-  - Fear  
-  - Happy  
-  - Sad  
-  - Surprised  
-- Fast inference using PyTorch  
-- Clean and simple front-end interface  
+## How it works
 
----
+1. The front end (`tempelates/index.html`, `static/script.js`) sends the uploaded image to the backend.
+2. The Flask server (`app.py`) resizes the image to 128 × 128, normalizes it, and runs the CNN.
+3. The `/predict` endpoint returns the result as JSON, for example `{"emotion": "Happy"}`.
 
-## 📂 Project Structure
+## Model
 
-```plaintext
-HUMAN-EMOTION-DETECTION/
-├── app.py # Flask server
-├── model.py # Model architecture + load function
-├── emotion_cnn.pt # Saved PyTorch model weights
-├── static/
-│ ├── style.css # Optional front-end styling
-│ └── script.js # Handles sending the image to backend
-└── templates/
-└── index.html # Front-end UI
-```
----
+- Trained in Google Colab with PyTorch on the Kaggle dataset `samithsachidanandan/human-face-emotions`
+- Classes: Angry, Fear, Happy, Sad, Surprised
+- Architecture (`model.py`): 4 convolutional blocks, global average pooling, and a fully connected layer with 5 outputs
+- Input: 128 × 128 RGB images, normalized with mean 0.5 and std 0.5
+- Weights: `emotion_cnn.pth`
 
-## 🧠 Model
+## Run it locally
 
-The CNN was trained in Google Colab using PyTorch on the  
-**samithsachidanandan/human-face-emotions** dataset from Kaggle.
-
-### **Input**
-- Images resized to **224 × 224**
-- Normalized to mean=`0.5`, std=`0.5`
-
-### **Architecture (Simplified)**
-
-- 4 convolutional blocks  
-- Global Average Pooling  
-- Fully connected layer with 5 outputs  
-- Trained for emotion classification  
-
-Model weights were saved using:
-
-```python
-torch.save(model.state_dict(), "emotion_cnn.pt")
-```
-## 💻 Running the Project Locally
-
-### **Install requirements**
-pip install flask torch torchvision pillow
-### **Run the Flask server**
+```bash
+pip install -r requirements.txt
 python app.py
-### **Open the web app**
-http://127.0.0.1:5000/
+```
+
+Then open http://127.0.0.1:5000/ in your browser.
+
+## Project structure
+
+```
+app.py              Flask server: serves the page and the /predict API
+model.py            CNN architecture
+emotion_cnn.pth     Trained model weights
+requirements.txt    Python dependencies
+static/             script.js and style.css for the front end
+tempelates/         index.html
+```
+
+## Built with
+
+Python, PyTorch, torchvision, Flask, Pillow, HTML/CSS/JavaScript
